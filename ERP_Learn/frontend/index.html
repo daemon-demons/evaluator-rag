@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERP Certification Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HOME -->
+  <div class="container" id="start-screen">
+    <h1>ERP Certification Assessment</h1>
+    <p>Enter course name and select your level to begin</p>
+
+    <div class="form-group">
+      <label for="course-name">Course Name:</label>
+      <input type="text" id="course-name" placeholder="e.g., ERP Systems, Python, Database Management" />
+    </div>
+
+    <div class="level-buttons">
+      <button onclick="startQuiz('beginner')">Beginner</button>
+      <button onclick="startQuiz('intermediate')">Intermediate</button>
+      <button onclick="startQuiz('expert')">Expert</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="container hidden" id="quiz-screen">
+    <div class="top-bar">
+      <span id="level-badge"></span>
+      <span id="progress"></span>
+    </div>
+
+    <div class="progress-bar">
+      <div id="progress-fill"></div>
+    </div>
+
+    <h2 id="question"></h2>
+
+    <div id="options"></div>
+    
+    <button id="next-button" onclick="nextQuestion()">Next Question →</button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="container hidden" id="result-screen">
+    <h1>Assessment Result</h1>
+    <p id="final-score"></p>
+    <p id="result-status"></p>
+
+    <button onclick="goHome()">Back to Home</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

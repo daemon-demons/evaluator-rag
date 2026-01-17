@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 16px; /* Base font size for consistency */
+  }
+  
+  body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .container {
+    background: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    min-width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .container h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    margin-bottom: 15px;
+    color: #2d3748;
+    font-weight: 700;
+  }
+  
+  .container h2 {
+    font-size: clamp(18px, 3vw, 24px);
+    margin-bottom: 25px;
+    color: #2d3748;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .container p {
+    font-size: clamp(14px, 2vw, 16px);
+    color: #4a5568;
+    margin-bottom: 20px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .form-group {
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: clamp(14px, 2vw, 16px);
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  .level-buttons button,
+  #options button,
+  .container button {
+    width: 100%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .level-buttons button:hover,
+  .container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  }
+  
+  .level-buttons button:active,
+  .container button:active {
+    transform: translateY(0);
+  }
+  
+  /* Option button styles */
+  #options {
+    margin-bottom: 20px;
+  }
+  
+  #options button {
+    background: #f7fafc;
+    color: #2d3748;
+    border: 2px solid #e2e8f0;
+    text-align: left;
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  #options button:hover:not(:disabled) {
+    background: #edf2f7;
+    border-color: #667eea;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  }
+  
+  #options button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  /* Selected answer styles */
+  #options button.selected {
+    background: #bee3f8;
+    border-color: #3182ce;
+    color: #2c5282;
+    font-weight: 600;
+  }
+  
+  #options button.correct {
+    background: #c6f6d5;
+    border-color: #38a169;
+    color: #22543d;
+    font-weight: 600;
+    animation: pulse 0.5s ease;
+  }
+  
+  #options button.incorrect {
+    background: #fed7d7;
+    border-color: #e53e3e;
+    color: #742a2a;
+    font-weight: 600;
+    animation: shake 0.5s ease;
+  }
+  
+  /* Next button */
+  #next-button {
+    display: none;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    margin-top: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+  }
+  
+  #next-button.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+  }
+  
+  #next-button:hover {
+    box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  #level-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  }
+  
+  #progress {
+    font-size: clamp(12px, 1.5vw, 14px);
+    color: #718096;
+    font-weight: 600;
+  }
+  
+  .progress-bar {
+    background: #e2e8f0;
+    height: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  #progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+  }
+  
+  /* Result screen styles */
+  #final-score {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: #2d3748;
+    margin: 20px 0;
+  }
+  
+  #result-status {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 600;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 12px;
+    background: #f7fafc;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+    
+    .container {
+      padding: 25px 20px;
+    }
+  }
+  
