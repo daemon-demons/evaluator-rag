@@ -1,0 +1,66 @@
+# Python bytecode / cache
+__pycache__/              # Python cache folders
+*.py[cod]                 # Compiled Python files
+
+# Virtual Environments (CRITICAL)
+gemini-env/               # Your Gemini virtual environment (DO NOT COMMIT)
+venv/                     # Generic virtual env
+.venv/                    # Alternate virtual env name
+env/                      # Another common env name
+
+# Environment Variables / Secrets
+.env                      # Environment variables (API keys)
+.env.*                    # Any env variants
+*.env                     # Safety net for env files
+
+# Gemini / AI Generated Artifacts
+model_cache/              # Cached AI model data
+rag_cache/                # RAG intermediate cache
+embeddings/               # Vector embeddings
+chroma/                   # Chroma DB
+chromadb/                 # Alternate Chroma folder
+faiss_index/              # FAISS vector index
+*.faiss                   # FAISS files
+*.index                   # Vector index files
+
+# Logs & Runtime Files
+*.log                     # Log files
+logs/                     # Logs directory
+*.out                     # Command output files
+*.pid                     # Process ID files
+
+# OS / Editor Noise
+.DS_Store                 # macOS Finder files
+Thumbs.db                 # Windows Explorer files
+.vscode/                  # VS Code settings
+.idea/                    # IntelliJ / PyCharm
+*.swp                     # Vim swap files
+
+# Frontend Build Artifacts
+node_modules/             # Frontend dependencies
+dist/                     # Frontend build output
+build/                    # Alternate build folder
+
+# Jupyter / Experiments
+.ipynb_checkpoints/       # Jupyter auto-checkpoints
+*.ipynb                   # Notebooks (optional to commit)
+
+# Test / Coverage
+.coverage                 # Coverage reports
+htmlcov/                  # HTML coverage
+.pytest_cache/            # Pytest cache
+
+# Shell / Script Outputs
+*.sh.log                  # Shell script logs
+
+# Poetry (KEEP lock, ignore cache)
+.poetry/                  # Poetry internal cache
+__pypackages__/           # PEP 582 packages
+
+# Allow Explicit Important Files
+!README.md
+!HOW_TO_RUN.md
+!QUICK_START.md
+!TROUBLESHOOTING.md
+!START_BOTH.sh
+!run_app.sh
